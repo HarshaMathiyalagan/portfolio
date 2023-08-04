@@ -14,9 +14,11 @@ body{
 #header{
     width: 100%;
     height: 100vh;
-    background-image: url(images/background\ 1.png);
+    background-image: url(images/background.png);
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
 }
 .container{
     padding: 10px 10%;
@@ -119,7 +121,7 @@ nav ul li a:hover::after{
 }
 .tab-contents ul li span{
     color: #ff004f;
-    font-size: 14px;
+    font-size: 15px;
 }
 .tab-contents{
     display: none;
@@ -127,43 +129,94 @@ nav ul li a:hover::after{
 .tab-contents.active-tab{
     display: block;
 }
-/*----------services---------*/
-#services{
-    padding: 30px 0;
+.progress{
+    background-color: #262626;
+    width: 80%;
+    border-radius: 15px;
+    margin-top: 15px;
+ }
+.bar{
+    background-color: #ff004f;
+    color: #ababab;
+    padding: 1%;
+    text-align: right;
+    font: 20px;
+    border-radius: 15px;
 }
-.services-list{
+.bar h2{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 15px;
+    padding: 5px 15px;
+}
+.bar span{
+    font-weight: normal;
+}
+.bar.html{
+    width: 95%;
+}
+.bar.css{
+    width: 80%;
+}
+.bar.js{
+    width: 65%;
+}
+.bar.py{
+    width: 80%;
+}
+.bar.fig{
+    width: 60%;
+}
+/*-------Certificates--------*/
+.certi-list{
     display: grid;
     grid-template-columns: repeat(auto-fit ,minmax(250px, 1fr));
     grid-gap: 40px;
     margin-top: 50px;
 }
-.services-list div{
+.box{
     background: #262626;
     padding: 40px;
     font-size: 13px;
     font-weight: 300;
     border-radius: 10px;
-    transition: background 0.5s, transfrom 0.5s;
+    display: none;
 }
-.services-list div i{
-    font-size: 50px;
-    margin-bottom: 30px;
+.box:nth-child(1), 
+.box:nth-child(2), 
+.box:nth-child(3){
+    display: inline;
 }
-.services-list div h2{
-    font-size: 30px;
+.box img{
+    width: 100%;
+    height: 35vh;
+    transition: transform 0.5s;
+}
+.box img:hover{
+    transform: scale(2.5);
+}
+.box h2{
+    font-size: 20px;
     font-weight: 500;
     margin-bottom: 15px;
+    text-align: center;
+    margin-top: 15px;
 }
-.services-list div a{
+#myBtn{
+    display: block;
+    margin: 50px auto;
+    width: fit-content;
+    border: 1px solid #ff004f;
+    padding: 14px 50px;
+    border-radius: 6px;
     text-decoration: none;
     color: #fff;
-    font-size: 12px;
-    margin-top: 20px;
-    display: inline-block;
+    transition: background 0.5s;
+    cursor: pointer;
 }
-.services-list div:hover{
+#myBtn:hover{
     background: #ff004f;
-    transform: translateY(-10px);
 }
 /*------portfolio-------*/
 #portfolio{
@@ -225,7 +278,8 @@ nav ul li a:hover::after{
 }
 .work:hover .layer{
     height: 100%;
-}.btn{
+}
+.btn{
     display: block;
     margin: 50px auto;
     width: fit-content;
@@ -310,7 +364,7 @@ nav .fa-solid{
 }
 @media only screen and (max-width: 600px){
     #header{
-        background-image: url(images/phone\ background.png);
+        background-image: url(images/phone-background.png);
     }
     .header-text{
         margin-top: 100px;
@@ -335,7 +389,6 @@ nav .fa-solid{
         padding-top: 50px;
         z-index: 2;
         transition: right 0.5s;
-
     }
     nav ul li{
         display: block;
@@ -362,6 +415,9 @@ nav .fa-solid{
     .tab-links{
         font-size: 16px;
         margin-top: 20px;
+    }
+    .certi-list div img:hover{
+        transform: scale(1.5);
     }
     .contact-left, .contact-right{
         flex-basis: 100%;
